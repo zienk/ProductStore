@@ -1,0 +1,25 @@
+﻿using DataAccessLayer.Models;
+using Repositories.Implements;
+using Repositories.Interfaces;
+using Services.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Services.Implements
+{
+    public class CategoryService : ICategoryService
+    {
+        private readonly ICategoryRepository _categoryRepository;
+
+        public CategoryService()
+        {
+            _categoryRepository = new CategoryRepository();
+        }
+
+        public List<Category> GetCategories()
+            => _categoryRepository.GetCategories();
+    }
+}
